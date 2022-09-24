@@ -42,3 +42,5 @@ for i in range(passLength):
     password += chars[randint(0, len(chars) - 1)]
 
 print("Your password is: ", password)
+
+input("Press enter to exit")
