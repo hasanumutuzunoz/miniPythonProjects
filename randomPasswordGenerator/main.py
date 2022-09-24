@@ -18,10 +18,13 @@ def userMessage():
 # YES - end the loop
 # NO - stay in the loop and ask again
 while userAgree != "YES":
-    passLength = int(input("Enter a number for the password length, (MAX: 30)\n"))
-    if passLength > 30:
-        print("You password cannot be more than 30 characters")
+    passLength = int(input("Enter a number for the password length\n"))
+
+    # Max character limit
+    if passLength > 1000000:
+        print("You password cannot be more than 1,000,000 characters")
         continue
+
     userMessage()
 
     # Second loop for OTHER answers to avoid asking password length
@@ -36,6 +39,6 @@ chars = string.ascii_letters + string.digits + string.punctuation
 # Add password string variable random characters
 password = ""
 for i in range(passLength):
-    password += chars[randint(0, len(chars))]
+    password += chars[randint(0, len(chars) - 1)]
 
 print("Your password is: ", password)
